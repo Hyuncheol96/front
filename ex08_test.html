@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="container">
+    <input type="text" size="80" id="userid" onblur="userid()" class="from-control"  placeholder="ID를 만들어주세요 띄어쓰기 없이 영/숫자 6-10자">
+    <input type="text" size="80" id="pw" onblur="pw()" class="from-control"  placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자 또는 특수문자 조합">
+    <input type="text" size="80" id="pwCheck" onblur="pwCheck()" class="from-control"  placeholder="위의 비밀번호를 다시 입력해주세요.">
+    <input type="text" size="80" id="username" onblur="username()" class="from-control"  placeholder="이름"><br>
+    <select name = "mobileNumber">
+        <option value="010">010</option>
+        <option value="016">016</option>
+        <option value="017">017</option>
+        <option value="018">018</option>
+        <option value="019">019</option>
+    </select>
+    <input type="text" size="72" id="mobileNumber" onblur="mobileNumber()" class="from-control"  placeholder="휴대폰번호입력"><br>
+    <input type="text" size="27" id="email" onblur="email()" class="from-control"  placeholder="이메일">@
+    <input type="text" size="27" id="email2" onblur="email2()" class="from-control"  placeholder="이메일">
+    <select id="ck" onchange="ck()" name = "emailSelect">
+        <option value="직접입력">직접입력</option>
+        <option value="naver.com">naver.com</option>
+        <option value="daum.net">daum.net</option>
+        <option value="hotmail.com">hotmail.com</option>
+        <option value="nate.com">nate.com</option>
+        <option value="yahoo.com">yahoo.com</option>
+        <option value="paran.com">paran.com</option>
+        <option value="empas.com">empas.com</option>
+        <option value="dreamwiz.com">dreamwiz.com</option>
+        <option value="freechal.com">freechal.com</option>
+        <option value="lycos.co.kr">lycos.co.kr</option>
+        <option value="korea.com">korea.com</option>
+        <option value="gmail.com">gmail.com</option>
+        <option value="hanmir.com">hanmir.com</option>
+    </select><br>
+    <button class="btn btn-secondary">처음으로</button>
+    <button class="btn btn-primary">확인</button>
+    
+    <p id="check-result"></p>
+    </div>
+</body>
+<script>
+    function userid() {
+        console.log("함수호출됨");
+        const userid = document.getElementById("userid").value;
+        console.log(`userid: ${userid}`);
+        console.log(userid.length);
+        const checkResult1 = document.getElementById("check-result");
+        if(userid.length == 0){
+            checkResult1.innerHTML = "필수 정보입니다.";
+            checkResult1.style.color = "red";
+        }
+    }
+    function pw() {
+        const pw = document.getElementById("pw").value;
+        console.log(`pw: ${pw}`);
+        console.log(pw.length);
+        const checkResult2 = document.getElementById("check-result");
+        if(pw.length == 0) {
+            checkResult2.innerHTML = "띄어쓰기 없는 8~15자의 영문 대/소문자, 숫자 또는 특수문자 조합으로 입력하셔야 합니다.";
+            checkResult2.style.color = "red";
+            
+        }
+    }
+    function pwCheck() {
+        const pwCheck = document.getElementById("pwCheck").value;
+        console.log(`pwCheck: ${pw}`);
+        console.log(pwCheck.length);
+        const checkResult3 = document.getElementById("check-result");
+        if(pwCheck.length == 0) {
+            checkResult3.innerHTML = "필수 정보입니다.";
+            checkResult3.style.color = "red";
+        }
+    }
+    function username() {
+        const username = document.getElementById("username").value;
+        console.log(`pwCheck: ${username}`);
+        console.log(username.length);
+        const checkResult4 = document.getElementById("check-result");
+        if(username.length == 0) {
+            checkResult4.innerHTML = "필수 정보입니다.";
+            checkResult4.style.color = "red";
+        }
+    }
+    function mobileNumber() {
+        const mobileNumber = document.getElementById("mobileNumber").value;
+        console.log(`mobileNumber: ${mobileNumber}`);
+        console.log(mobileNumber.length);
+        const checkResult5 = document.getElementById("check-result");
+        if(mobileNumber.length == 0) {
+            checkResult5.innerHTML = "전화번호를 정확히 입력해 주세요.";
+            checkResult5.style.color = "red";
+        }
+    }
+    function email() {
+        const email = document.getElementById("email").value;
+        console.log(`email: ${email}`);
+        console.log(email.length);
+        const checkResult6 = document.getElementById("check-result");
+        if(username.length == 0) {
+            checkResult6.innerHTML = "이메일 주소를 다시 확인해주세요.";
+            checkResult6.style.color = "red";
+        }
+    }
+    function email2() {
+        const email2 = document.getElementById("email2").value;
+        console.log(`email2: ${email2}`);
+        console.log(email2.length);
+        const checkResult7 = document.getElementById("check-result");
+        if(username.length == 0) {
+            checkResult7.innerHTML = "이메일 주소를 다시 확인해주세요.";
+            checkResult7.style.color = "red";
+        }
+    }
+
+function ck() {
+    const ck = document.getElementById("ck").value;
+    const email2 = document.getElementById("email2");
+    email2.value = ck;
+}
+</script>
+</html>
